@@ -5,7 +5,7 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     public GameObject camera1, camera2;
-   
+    public GameObject fpscontroller;
 
     // Update is called once per frame
     void Update()
@@ -19,6 +19,7 @@ public class NewBehaviourScript : MonoBehaviour
             gameObject.GetComponent<NewBehaviourScript>().enabled = false;
 
             gameObject.GetComponent<cameraswitch>().enabled = true;
+            fpscontroller.SetActive(true);
         }
         
 
