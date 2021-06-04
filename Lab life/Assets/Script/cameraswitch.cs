@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class cameraswitch : MonoBehaviour
     
 {
+
+
     public GameObject camera1, camera2;
-    public GameObject fpscontroller;
+   // public GameObject fpscontroller;
     // Start is called before the first frame update
     void Start()
     {
-        UnlockMouse();
+        
+       
 
     }
 
@@ -19,22 +23,33 @@ public class cameraswitch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            camera1.SetActive(true);
-            camera2.SetActive(false);
+            camera1.SetActive(false);
+            camera2.SetActive(true);
 
 
 
             gameObject.GetComponent<NewBehaviourScript>().enabled = true;
             gameObject.GetComponent<cameraswitch>().enabled = false;
-            fpscontroller.SetActive(false);
+            //gameObject.GetComponent<Newpickup>().enabled = false;
+
+            
+
+
+            FirstPersonController firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
+
+            GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
+            
+            
+            firstPersonController.m_MouseLook.SetCursorLock(false);
+            firstPersonController.m_MouseLook.UpdateCursorLock();
+
+
+
+
         }
         
 
     }
 
-    void UnlockMouse()
-    {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
+    
 }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class MouseMove : MonoBehaviour
 {
-    private Camera mainCamera;
-    private float CameraZDistance;
+    [SerializeReference]private Camera mainCamera;
+    public float CameraZDistance;
 
     void Start()
     {
-        mainCamera = Camera.main;
+        
         CameraZDistance =
             mainCamera.WorldToScreenPoint(transform.position).z; //z axis of the game object for screen view
     }
