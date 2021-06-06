@@ -21,9 +21,16 @@ public class NewBehaviourScript : MonoBehaviour
 
             gameObject.GetComponent<cameraswitch>().enabled = true;
 
-            //gameObject.GetComponent<Mouselock>().enabled = false;
+            gameObject.GetComponent<MouseMove>().enabled = false;
+            
+            gameObject.GetComponent<Newpickup>().enabled = true;
+            FirstPersonController firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
 
-            //GameObject.Find("Player").GetComponent<FirstPersonController>().enabled = true;
+            GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = true;
+
+
+            firstPersonController.m_MouseLook.SetCursorLock(true);
+            firstPersonController.m_MouseLook.UpdateCursorLock();
 
 
         }

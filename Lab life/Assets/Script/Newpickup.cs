@@ -6,12 +6,13 @@ public class Newpickup : MonoBehaviour
 {
     float throwForce = 600;
     Vector3 objectPos;
-    float distance;
+    public float distance;
 
     public bool canHold = true;
     public GameObject item;
     public GameObject tempParent;
     public bool isHolding = false;
+    //public Item Cottonswap;
 
 
     // Update is called once per frame
@@ -29,6 +30,7 @@ public class Newpickup : MonoBehaviour
             item.GetComponent<Rigidbody>().velocity = Vector3.zero;
             item.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
             item.transform.SetParent(tempParent.transform);
+            //Cottonswap.isbeingheld = true;
 
             if (Input.GetMouseButtonDown(1))
             {
@@ -42,7 +44,10 @@ public class Newpickup : MonoBehaviour
             item.transform.SetParent(null);
             item.GetComponent<Rigidbody>().useGravity = true;
             item.transform.position = objectPos;
+            //Cottonswap.isbeingheld = false;
         }
+
+        
     }
 
     void OnMouseDown()

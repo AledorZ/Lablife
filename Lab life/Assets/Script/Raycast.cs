@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Raycast : MonoBehaviour
 {
+    public float range;
+    public GameObject parent;
+    public Camera Camera;
     
 
     // Start is called before the first frame update
@@ -12,25 +15,24 @@ public class Raycast : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (hit.collider != null)
-            {
-                GameObject hitobjt = hit.transform.gameObject;
-                var script = hitobjt.GetComponent<Newpickup>();
-                script.enabled = true;
-            }
-            
-            
-
+            PickUP();
         }
        
             
 
+    }
+
+    void PickUP()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(Camera.transform.position, Camera.transform.forward, out hit, range))
+        {
+           
+        }
     }
 }

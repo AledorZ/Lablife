@@ -21,24 +21,27 @@ public class cameraswitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             camera1.SetActive(false);
             camera2.SetActive(true);
 
 
 
-            gameObject.GetComponent<NewBehaviourScript>().enabled = true;
+            //gameObject.GetComponent<NewBehaviourScript>().enabled = true;
             gameObject.GetComponent<cameraswitch>().enabled = false;
-            //gameObject.GetComponent<Newpickup>().enabled = false;
-
             
+           // gameObject.GetComponent<MouseMove>().enabled = true;
+           
+            
+
+
 
 
             FirstPersonController firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
 
             GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
-            
+            GameObject.Find("FPSController").GetComponent<Pickup>().enabled = false;
             
             firstPersonController.m_MouseLook.SetCursorLock(false);
             firstPersonController.m_MouseLook.UpdateCursorLock();
