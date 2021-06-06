@@ -9,6 +9,7 @@ public class cameraswitch : MonoBehaviour
 
 
     public GameObject camera1, camera2;
+    //public GameObject Fordeactivate;
    // public GameObject fpscontroller;
     // Start is called before the first frame update
     void Start()
@@ -29,11 +30,15 @@ public class cameraswitch : MonoBehaviour
 
 
             gameObject.GetComponent<cameraswitch>().enabled = false;
-            gameObject.GetComponent<NewBehaviourScript>().enabled = false;
+            //gameObject.GetComponent<NewBehaviourScript>().enabled = true;
 
-           
-           
+
+            Pickup pickup = GameObject.Find("FPSController").GetComponent<Pickup>();
             
+            pickup.enabled = false;
+
+
+
 
 
 
@@ -41,8 +46,7 @@ public class cameraswitch : MonoBehaviour
             FirstPersonController firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
             firstPersonController.enabled = false;
            
-            //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
-            GameObject.Find("FPSController").GetComponent<Pickup>().enabled = false;
+         
             
             firstPersonController.m_MouseLook.SetCursorLock(false);
             firstPersonController.m_MouseLook.UpdateCursorLock();

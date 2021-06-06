@@ -43,7 +43,7 @@ public class Pickup : MonoBehaviour
         {
 
 
-            if (hit.transform.tag != "Pickupable")
+            if (hit.transform.tag == "Pickupable")
             {
                 pickupable = false;
             }
