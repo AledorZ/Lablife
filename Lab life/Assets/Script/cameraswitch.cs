@@ -28,10 +28,10 @@ public class cameraswitch : MonoBehaviour
 
 
 
-            //gameObject.GetComponent<NewBehaviourScript>().enabled = true;
             gameObject.GetComponent<cameraswitch>().enabled = false;
-            
-           // gameObject.GetComponent<MouseMove>().enabled = true;
+            gameObject.GetComponent<NewBehaviourScript>().enabled = false;
+
+           
            
             
 
@@ -39,8 +39,9 @@ public class cameraswitch : MonoBehaviour
 
 
             FirstPersonController firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
-
-            GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
+            firstPersonController.enabled = false;
+           
+            //GameObject.Find("FPSController").GetComponent<FirstPersonController>().enabled = false;
             GameObject.Find("FPSController").GetComponent<Pickup>().enabled = false;
             
             firstPersonController.m_MouseLook.SetCursorLock(false);
